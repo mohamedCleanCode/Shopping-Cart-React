@@ -1,0 +1,40 @@
+.product {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 10px 10px 25px #00000012;
+}
+.product img {
+  width: 100%;
+  height: 185px;
+  background-color: #eee;
+  border-radius: 8px;
+}
+.product .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #444;
+}
+.product .name {
+  font-weight: bold;
+  font-size: 25px;
+}
+.product .desc {
+  padding: 10px;
+  color: #44444482;
+}
+.product button {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  bottom: 15px;
+  left: 85%;
+  cursor: pointer;
+}
+.product button i {
+  color: #444;
+  font-size: 22px;
+}
