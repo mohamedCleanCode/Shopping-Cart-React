@@ -3,10 +3,10 @@ import { useDate } from "../../context/GlobalContext";
 import ProductCart from "./ProductCart/ProductCart";
 
 const Cart = () => {
-  const { cart } = useDate();
+  const { cart, total } = useDate();
   return (
     <div className="cart container py-5">
-      <h1>Your Shopping Cart</h1>
+      <h1>Your Shopping Cart {cart.length}</h1>
       <div className="row justify-content-between">
         {cart.map((product) => {
           return (
@@ -20,7 +20,7 @@ const Cart = () => {
         })}
       </div>
       <div className="subtotal d-flex justify-content-between align-items-center pt-3">
-        <p className="fs-3">Subtotal: {"$total"}</p>
+        <p className="fs-3">Subtotal: ${total}</p>
         <div className="subtotal actions">
           <button className="bg-danger border-0 text-light p-2 me-3">
             Empty Cart
