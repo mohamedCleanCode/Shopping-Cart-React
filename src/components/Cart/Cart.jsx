@@ -10,7 +10,7 @@ const Cart = () => {
   }, 0);
   return (
     <div className="cart container py-5">
-      <h1>Your Shopping Cart {cart.length}</h1>
+      <h1>Your Shopping Cart</h1>
       <div className="row justify-content-between">
         {cart.map((product) => {
           return (

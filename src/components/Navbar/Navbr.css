@@ -10,3 +10,21 @@
   border-radius: 50%;
   margin-right: 6px;
 }
+.cart-badge {
+  position: relative;
+}
+.cart-badge .counter {
+  position: absolute;
+  top: -20px;
+  right: -25px;
+  background-color: red;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  display: none;
+}
