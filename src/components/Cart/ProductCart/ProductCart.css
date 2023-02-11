@@ -1,0 +1,14 @@
+.cart .product {
+}
+.cart .product .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.cart .product .actions button {
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 15px;
+}

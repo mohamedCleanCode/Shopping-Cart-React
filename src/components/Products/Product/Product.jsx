@@ -6,14 +6,14 @@ const Product = ({ product }) => {
   const { addToCart } = useDate();
   return (
     <div className="product">
-      <img src={product.image} alt={product.title} />
+      <img src={product?.images[0]} alt={product.title} />
       <div className="info">
         <p className="name">{product.title}</p>
         <p className="price">${product.price}</p>
       </div>
       <p className="desc">{product.description.slice(0, 50)}</p>
       <div className="actions">
-        <button onClick={() => addToCart(product)}>
+        <button className="add-to-cart" onClick={() => addToCart(product)}>
           <i className="fa-solid fa-cart-plus"></i>
         </button>
       </div>

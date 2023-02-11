@@ -6,7 +6,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
+    const res = await fetch("https://api.escuelajs.co/api/v1/products");
     const data = await res.json();
     setProducts(data);
   };

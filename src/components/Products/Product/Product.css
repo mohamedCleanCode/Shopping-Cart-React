@@ -30,7 +30,7 @@
   color: #44444482;
   font-size: 12px;
 }
-.product button {
+.product .add-to-cart {
   border: none;
   background-color: transparent;
   position: relative;
