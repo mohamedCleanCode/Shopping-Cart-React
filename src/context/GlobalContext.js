@@ -4,7 +4,6 @@ const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
 
   const addToCart = (product) => {
     const found = cart.find((item) => item.id === product.id);
@@ -22,22 +21,14 @@ const GlobalContextProvider = ({ children }) => {
     // localStorage.setItem("cart", JSON.stringify(cart));
   };
 
-  const totalPrice = () => {
-    setTotal(
-      cart.reduce((acc, curr) => {
-        return acc.price * acc.qantity + curr.price * curr.qantity;
-      }, 0)
-    );
-  };
-
   useEffect(() => {
     if (localStorage.getItem("cart")) {
       setCart([...JSON.parse(localStorage.getItem("cart"))]);
     }
-  }, [total]);
+  }, []);
 
   return (
-    <GlobalContext.Provider value={{ cart, addToCart, removeFromCart, total }}>
+    <GlobalContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </GlobalContext.Provider>
   );

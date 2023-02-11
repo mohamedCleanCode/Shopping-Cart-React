@@ -3,12 +3,7 @@ import { useDate } from "../../../context/GlobalContext";
 import "./ProductCart.css";
 
 const ProductCart = ({ product }) => {
-  //   const [qantity, setQantity] = useState(0);
   const { removeFromCart } = useDate();
-
-  //   useEffect(() => {
-  //     setQantity(product.qantity ? product.qantity : 0);
-  //   }, []);
   return (
     <div className="product">
       <img src={product?.images[0]} alt={product.title} />

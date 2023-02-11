@@ -3,7 +3,11 @@ import { useDate } from "../../context/GlobalContext";
 import ProductCart from "./ProductCart/ProductCart";
 
 const Cart = () => {
-  const { cart, total } = useDate();
+  const { cart } = useDate();
+  const total = cart.reduce((acc, product) => {
+    acc += +product.price * product.qantity;
+    return acc;
+  }, 0);
   return (
     <div className="cart container py-5">
       <h1>Your Shopping Cart {cart.length}</h1>
