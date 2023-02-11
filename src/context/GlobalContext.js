@@ -32,6 +32,9 @@ const GlobalContextProvider = ({ children }) => {
     setCart([...cart]);
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
   useEffect(() => {
     if (localStorage.getItem("cart")) {
       setCart([...JSON.parse(localStorage.getItem("cart"))]);
@@ -40,7 +43,14 @@ const GlobalContextProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ cart, addToCart, removeFromCart, increaseItem, decreaseItem }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        increaseItem,
+        decreaseItem,
+        clearCart,
+      }}
     >
       {children}
     </GlobalContext.Provider>
