@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useDate } from "../../../context/GlobalContext";
 import "./ProductCart.css";
 
 const ProductCart = ({ product }) => {
-  const [qantity, setQantity] = useState(0);
+  //   const [qantity, setQantity] = useState(0);
+  const { removeFromCart } = useDate();
 
-  useEffect(() => {
-    setQantity(product.qantity ? product.qantity : 0);
-  }, []);
+  //   useEffect(() => {
+  //     setQantity(product.qantity ? product.qantity : 0);
+  //   }, []);
   return (
     <div className="product">
       <img src={product?.images[0]} alt={product.title} />
@@ -16,9 +18,12 @@ const ProductCart = ({ product }) => {
       </div>
       <div className="actions">
         <button className="decrease">-</button>
-        {qantity}
+        {product.qantity}
         <button className="increase">+</button>
-        <button className="remove-item bg-danger rounded text-light">
+        <button
+          className="remove-item bg-danger rounded text-light"
+          onClick={() => removeFromCart(product)}
+        >
           Remove
         </button>
       </div>

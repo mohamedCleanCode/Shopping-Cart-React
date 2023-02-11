@@ -8,13 +8,17 @@ const GlobalContextProvider = ({ children }) => {
   const addToCart = (product) => {
     const found = cart.find((item) => item.id === product.id);
     if (found) {
-      console.log(found);
       found.qantity += 1;
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       setCart([...cart, { ...product, qantity: 1 }]);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      // localStorage.setItem("cart", JSON.stringify(cart));
     }
+  };
+
+  const removeFromCart = (product) => {
+    setCart([...cart.filter((item) => item.id !== product.id)]);
+    // localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const GlobalContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ cart, addToCart }}>
+    <GlobalContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </GlobalContext.Provider>
   );
