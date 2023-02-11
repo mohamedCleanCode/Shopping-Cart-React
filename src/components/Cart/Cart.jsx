@@ -24,7 +24,7 @@ const Cart = () => {
         })}
       </div>
       <div className="subtotal d-flex justify-content-between align-items-center pt-3">
-        <p className="fs-3">Subtotal: ${total}</p>
+        <p className="fs-3">Subtotal: ${total >= 0 && total}</p>
         <div className="subtotal actions">
           <button className="bg-danger border-0 text-light p-2 me-3">
             Empty Cart
