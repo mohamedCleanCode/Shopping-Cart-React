@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useDate } from "../../context/GlobalContext";
 import ProductCart from "./ProductCart/ProductCart";
 
@@ -32,9 +33,9 @@ const Cart = () => {
           >
             Empty Cart
           </button>
-          <button className="bg-primary border-0 text-light p-2">
+          <Link to="/checkout" className="bg-primary border-0 text-light p-2">
             Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>

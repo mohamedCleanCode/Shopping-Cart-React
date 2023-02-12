@@ -3,22 +3,21 @@ import { createContext, useContext, useEffect, useState } from "react";
 const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const addToCart = (product) => {
     const found = cart.find((item) => item.id === product.id);
     if (found) {
       found.qantity += 1;
-      // localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       setCart([...cart, { ...product, qantity: 1 }]);
-      // localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
 
   const removeFromCart = (product) => {
     setCart([...cart.filter((item) => item.id !== product.id)]);
-    // localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   const increaseItem = (product) => {
@@ -35,11 +34,10 @@ const GlobalContextProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
   };
+
   useEffect(() => {
-    if (localStorage.getItem("cart")) {
-      setCart([...JSON.parse(localStorage.getItem("cart"))]);
-    }
-  }, []);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <GlobalContext.Provider

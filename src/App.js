@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Cart, Navbar, Products } from "./components";
+import { Cart, Checkout, Navbar, Products } from "./components";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -32,6 +32,15 @@ const App = () => {
             <>
               <Navbar />
               <Cart />
+            </>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <Navbar />
+              <Checkout />
             </>
           }
         />
